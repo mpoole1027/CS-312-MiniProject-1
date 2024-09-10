@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Create New Blog Post</h1>
+    <form action="/submit" method="POST">
+        <input type="text" name="authorName" placeholder="Author Name">
+        <input type="text" name="blogTitle" placeholder="Blog Title">
+        <input type="text" name="content" placeholder="Blog Content">
+        <input type="submit" value="Create Post">
+    </form>
+    <% if (locals.blogPosts){ %>
+        <% for (var index = 0; index < blogPosts.length; index++) { %>
+        <h1>Author: <%=blogPosts[index].authorName%><br>
+            Title: <%=blogPosts[index].blogTitle%><br>
+            Created On: <%=blogPosts[index].creationTime%><br>
+            Blog: <%=blogPosts[index].content%>
+        </h1>
+        <% }; %>
+    <% } %>
+</body>
+</html>
