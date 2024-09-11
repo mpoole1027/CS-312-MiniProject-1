@@ -31,8 +31,6 @@ app.post("/submit", (req, res) => {
 
 app.post("/delete", (req, res) => {
     const listIndex = req.body.index;
-    console.log(listIndex);
-    console.log("DELETING");
     blogPosts.splice(listIndex, 1);
 
     res.render("index.ejs", {blogPosts: blogPosts});
