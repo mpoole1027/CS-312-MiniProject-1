@@ -29,13 +29,28 @@ app.post("/submit", (req, res) => {
     res.render("index.ejs", {blogPosts: blogPosts})
 });
 
-app.delete("/", (req, res) => {
+app.post("/delete", (req, res) => {
+    const listIndex = req.body.index;
+    console.log(listIndex);
+    console.log("DELETING");
+    blogPosts.splice(listIndex, 1);
 
+    res.render("index.ejs", {blogPosts: blogPosts});
 });
 
-app.patch("/", (req, res) => {
-
+app.post("/edit", (req, res) => {
+    const listIndex = req.body.index;
+    res.render("edit.ejs", {blogPost: blogPosts[listIndex], listIndex: listIndex});
 });
+
+app.post("/update", (req, res) => {
+    const listIndex = req.body.id;
+    blogPosts[listIndex].authorName = req.body["authorName"];
+    blogPosts[listIndex].blogTitle = req.body["blogTitle"];
+    blogPosts[listIndex].content = req.body["content"];
+    res.render("index.ejs", {blogPosts: blogPosts});
+});
+
 
 app.listen(port,() => {
     console.log(`Server running on port ${port}.`);

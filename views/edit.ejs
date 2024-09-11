@@ -1,0 +1,7 @@
+<form action="/update" method="POST">
+    <input type="hidden" name="id" value="<%= listIndex %>">
+    <input type="text" name="authorName" value=<%=blogPost.authorName%>>
+    <input type="text" name="blogTitle" value=<%=blogPost.blogTitle%>>
+    <input type="text" name="content" value=<%=blogPost.content%>>
+    <input type="submit" value="Submit Edit">
+</form>
