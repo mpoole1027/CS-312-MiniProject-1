@@ -1,1 +1,1 @@
-# cs312_HW_1
+# CS-312-MiniProject-1
