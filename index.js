@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", { blogPosts: blogPosts });
 });
 
 app.post("/submit", (req, res) => {
@@ -28,19 +28,20 @@ app.post("/submit", (req, res) => {
 
     blogPosts.push(newPost);
 
-    res.render("index.ejs", {blogPosts: blogPosts})
+    res.redirect('/');
 });
 
 app.post("/delete", (req, res) => {
     const listIndex = req.body.index;
     blogPosts.splice(listIndex, 1);
 
-    res.render("index.ejs", {blogPosts: blogPosts});
+    res.redirect('/');
 });
 
 app.post("/edit", (req, res) => {
     const listIndex = req.body.index;
     res.render("edit.ejs", {blogPost: blogPosts[listIndex], listIndex: listIndex});
+    
 });
 
 app.post("/update", (req, res) => {
@@ -48,7 +49,7 @@ app.post("/update", (req, res) => {
     blogPosts[listIndex].authorName = req.body["authorName"];
     blogPosts[listIndex].blogTitle = req.body["blogTitle"];
     blogPosts[listIndex].content = req.body["content"];
-    res.render("index.ejs", {blogPosts: blogPosts});
+    res.redirect('/');    
 });
 
 
