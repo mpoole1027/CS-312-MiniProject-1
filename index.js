@@ -15,7 +15,7 @@ app.post("/submit", (req, res) => {
     var authorName= req.body["authorName"];
     var blogTitle= req.body["blogTitle"];
     var content= req.body["content"];
-    var creationTime = Date().toLocaleString();
+    var creationTime = Date();
 
     const newPost = {
         authorName: authorName,

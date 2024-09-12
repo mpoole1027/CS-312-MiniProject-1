@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        function deletePost(){
-
-        }
-    </script>
-    
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>CS-312-MiniProject-1</title>
 </head>
 <body>
     <h1>Create New Blog Post</h1>
@@ -25,7 +18,8 @@
     <% if (locals.blogPosts){ %>
         <% for (var index = 0; index < blogPosts.length; index++) { %>
 
-        <h1>Author: <%=blogPosts[index].authorName%><br>
+        <h1>
+            Author: <%=blogPosts[index].authorName%><br>
             Title: <%=blogPosts[index].blogTitle%><br>
             Created On: <%=blogPosts[index].creationTime%><br>
             Blog: <%=blogPosts[index].content%>
@@ -40,8 +34,6 @@
             <input type="hidden" name="index" value="<%= index %>">
             <button type="submit">Edit</button>
         </form>
-
-
 
         <% }; %>
     <% } %>
