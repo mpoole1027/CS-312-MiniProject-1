@@ -9,6 +9,7 @@
 <body>
     <h1 class="title">Create New Blog Post</h1>
 
+    <!-- This is the initial create post form for the user to make new posts -->
     <form class="postForm" action="/submit" method="POST">
         <input type="text" name="authorName" placeholder="Author Name" required>
         <input type="text" name="blogTitle" placeholder="Blog Title" required>
@@ -16,6 +17,7 @@
         <input class="submit" type="submit" value="Create Post">
     </form>
 
+    <!-- This checks if the blogPosts lists has items and if it does it loops through and displays them -->
     <% if (locals.blogPosts){ %>
         <% for (var index = 0; index < blogPosts.length; index++) { %>
         <div class="blogPost">
@@ -26,6 +28,7 @@
                 Blog: <%=blogPosts[index].content%>
             </h1>
 
+            <!-- also creates delete and edit buttons that go with each post -->
             <form action="/delete" method="POST" style="display:inline;">
                 <input type="hidden" name="index" value="<%= index %>">
                 <button class="deleteButton" type="submit">Delete</button>

@@ -5,9 +5,12 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
+<!-- The body is a form that is autofilled with the selected posts data -->
+ <!-- The user can then edit and resubmit the post and it will update the list with the /update route -->
 <body>
     <h1 class="title">Edit Blog Post</h1>
     <form class="postForm" action="/update" method="POST">
+        <!-- the hidden value is to be able to pass the index of the post back to the .js file-->
         <input type="hidden" name="id" value="<%= listIndex %>">
         <input type="text" name="authorName" value="<%=blogPost.authorName%>">
         <input type="text" name="blogTitle" value="<%=blogPost.blogTitle%>">
